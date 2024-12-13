@@ -3,6 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  .small-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    -ms-overflow-style: auto; /* IE 10+ */
+  }
+  .small-scrollbar::-webkit-scrollbar {
+    width: 2px; /* Chrome, Safari, Edge - scrollbar width */
+    height: 2px; /* For horizontal scrollbar */
+  }
+  .small-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  }
+  .small-scrollbar::-webkit-scrollbar-track {
+    border-radius: 3px;
+  }
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;

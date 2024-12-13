@@ -74,8 +74,8 @@ export default async function CategoryPage({
                             </span>
                             <span className="text-sm font-medium text-gray-900">
                               $
-                              {(product.price * (100 - (product.sale ?? 0))) /
-                                100}
+                              {((product.price * (100 - (product.sale ?? 0))) /
+                                100).toFixed(2)}
                             </span>
                           </>
                         ) : (

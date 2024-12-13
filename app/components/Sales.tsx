@@ -59,8 +59,12 @@ export default async function Sales() {
                       <span className="text-xs font-medium text-gray-900 line-through mr-1">
                         ${product.price}
                       </span>
-                      <span className="text-sm font-medium text-gray-900">
-                        ${(product.price * (100 - (product.sale ?? 0))) / 100}
+                      <span className="text-base mb-0.5 text-gray-800 line-through">
+                        $
+                        {(
+                          (product.price * (100 - (product.sale ?? 0))) /
+                          100
+                        ).toFixed(2)}
                       </span>
                     </div>
                     <h3 className="text-sm justify-between">{product.name}</h3>
