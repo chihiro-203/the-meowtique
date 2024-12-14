@@ -14,7 +14,7 @@ export interface fullProduct {
   _id: string;
   sku: string;
   name: string;
-  images: any;
+  images: { url: string; alt?: string }[];
   slug: string;
   price: number;
   sale: number;

@@ -10,7 +10,7 @@ export interface ProductCart {
   price: number;
   sale: number;
   currency: string;
-  image: any;
+  image: ;
 }
 
 export default function AddToBag({

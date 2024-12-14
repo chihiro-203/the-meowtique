@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode } from "react";
 import { CartProvider as USCProvider } from "use-shopping-cart";
 
 function CartProvider({ children }: { children: ReactNode }) {

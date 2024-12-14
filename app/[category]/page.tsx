@@ -74,8 +74,10 @@ export default async function CategoryPage({
                             </span>
                             <span className="text-sm font-medium text-gray-900">
                               $
-                              {((product.price * (100 - (product.sale ?? 0))) /
-                                100).toFixed(2)}
+                              {(
+                                (product.price * (100 - (product.sale ?? 0))) /
+                                100
+                              ).toFixed(2)}
                             </span>
                           </>
                         ) : (
@@ -101,5 +103,8 @@ export default async function CategoryPage({
         </div>
       </div>
     );
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error loading product page:", error);
+    return <div>Failed to load product.</div>;
+  }
 }
