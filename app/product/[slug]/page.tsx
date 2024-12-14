@@ -5,6 +5,7 @@ import { client } from "@/app/lib/sanity";
 import { Button } from "@/components/ui/button";
 import { Star, Truck } from "lucide-react";
 import { useState } from "react";
+import React from "react";
 
 async function getData(slug: string) {
   const query = `*[_type == "product" && slug.current == "${slug}"][0] {
@@ -126,31 +127,47 @@ export default async function ProductPage({
                   <p className="my-1 text-base font-bold text-gray-500 cursor-pointer">
                     Product Details
                   </p>
-                  {/* {openDetails && (
-                    <>
-                      <p className="my-1 text-base font-bold text-gray-500">
-                        Measurements:
-                      </p>
-                      <p className=" mb-2 text-base text-gray-500">
-                        {data.measurements}
-                      </p>
-                      <p className="my-1 text-base font-bold text-gray-500">
-                        Country/Region of Origin:{" "}
-                        <span className="mb-1 text-base font-normal text-gray-500">
-                          {data.origin}
-                        </span>
-                      </p>
-                    </>
-                  )} */}
+                  {/* {openDetails && ( */}
+                  <div>
+                    <p className="my-1 text-base font-bold text-gray-500">
+                      Measurements:
+                    </p>
+                    <p className="mb-2 text-sm text-gray-500">
+                      {data.measurements.split("\n").map((line, index) => (
+                        <React.Fragment key={index}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                    </p>
+                    <p className="my-1 text-base font-bold text-gray-500">
+                      Country/Region of Origin:{" "}
+                      <span className="mb-1 text-base font-normal text-gray-500">
+                        {data.origin.split("\n").map((line, index) => (
+                          <React.Fragment key={index}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}
+                      </span>
+                    </p>
+                  </div>
+                  {/* )} */}
                 </div>
 
                 <hr className="my-4 border-gray-300" />
                 <div>
                   <p className="my-1 text-base font-bold text-gray-500 cursor-pointer">
-                    Materials & Care
+                    Materials & Care:
                   </p>
-
-                  {/* {openMat} */}
+                    <p className="mb-2 text-sm text-gray-500">
+                      {data.material.split("\n").map((line, index) => (
+                        <React.Fragment key={index}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                    </p>
                 </div>
 
                 <hr className="my-4 border-gray-300" />

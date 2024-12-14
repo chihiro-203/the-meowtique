@@ -24,7 +24,13 @@
   .small-scrollbar::-webkit-scrollbar-track {
     border-radius: 3px;
   }
-  
+  .truncate-multiline {
+    @apply overflow-hidden text-ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
