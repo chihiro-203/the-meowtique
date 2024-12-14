@@ -24,6 +24,7 @@
     "stripe": "^17.4.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "typescript-eslint": "^8.18.0",
     "use-shopping-cart": "^3.2.0"
   },
   "devDependencies": {
