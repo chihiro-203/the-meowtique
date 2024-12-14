@@ -23,7 +23,7 @@ export default async function Sales() {
   const data: simplifiedProduct[] = await getData();
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
@@ -43,7 +43,7 @@ export default async function Sales() {
               className="shadow-lg border border-gray-200 group relative p-4"
             >
               <Link href={`/product/${product.slug}`}>
-                <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+                <div className="relative aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                   <Image
                     src={product.imageUrl[0]}
                     alt="Product Image"
@@ -51,6 +51,14 @@ export default async function Sales() {
                     width={300}
                     height={300}
                   />
+
+                  {product.sale > 0 ? (
+                    <span className="absolute left-0 top-0 rounded-br-lg bg-primary px-3 py-1.5 text-sm uppercase tracking-wider text-white">
+                      Sale
+                    </span>
+                  ) : (
+                    <></>
+                  )}
                 </div>
 
                 <div className="mt-4 flex justify-between">
@@ -59,7 +67,7 @@ export default async function Sales() {
                       <span className="text-xs font-medium text-gray-900 line-through mr-1">
                         ${product.price}
                       </span>
-                      <span className="text-base mb-0.5 text-gray-800">
+                      <span className="text-base mb-0.5 text-primary">
                         $
                         {(
                           (product.price * (100 - (product.sale ?? 0))) /

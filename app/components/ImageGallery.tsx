@@ -47,7 +47,7 @@ export default function ImageGallery({ images, sale }: iAppProps) {
         ))}
       </div>
 
-      <div className="relative  items-center overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
+      <div className="relative items-center overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
         <Image
           src={urlFor(images[currentIndex]).url()}
           alt="Current Photo"
