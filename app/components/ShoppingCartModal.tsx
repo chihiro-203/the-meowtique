@@ -17,8 +17,18 @@ export default function ShoppingCartModal() {
     handleCartClick,
     cartDetails,
     removeItem,
-    totalPrice,
+    // totalPrice,
   } = useShoppingCart();
+  const totalPrice = Object.values(cartDetails).reduce((total, item) => {
+    return (
+      total +
+      (item.sale > 0 ? item.price * (1 - item.sale / 100) : item.price) *
+        item.quantity
+    );
+  }, 0);
+
+  //   console.log("Total Price:", totalPrice);
+
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent className="sm:max-w-lg w-[90vw]">
@@ -51,9 +61,27 @@ export default function ShoppingCartModal() {
                           <div className="flex justify-between text-base font-medium text-gray-900">
                             <h3>{entry.name}</h3>
                           </div>
-                          <p className="text-sm text-gray-600 font-semibold">
-                            {entry.price}VND
-                          </p>
+
+                          <div className="flex items-center">
+                            {entry.sale > 0 ? (
+                              <>
+                                <p className="text-xs text-gray-600 font-semibold line-through mr-1">
+                                  ${entry.price}
+                                </p>
+                                <p className="text-sm text-gray-600 font-semibold">
+                                  $
+                                  {(
+                                    (entry.price * (100 - (entry.sale ?? 0))) /
+                                    100
+                                  ).toFixed(2)}
+                                </p>
+                              </>
+                            ) : (
+                              <span className="text-sm text-gray-600 font-semibold">
+                                ${entry.price}
+                              </span>
+                            )}
+                          </div>
                         </div>
 
                         <div className="flex flex-1 items-end justify-between text-sm">
@@ -81,7 +109,7 @@ export default function ShoppingCartModal() {
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal:</p>
-              <p>{totalPrice}VND</p>
+              <p>${totalPrice?.toFixed(2)}</p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">
               Shipping and taxes are calculated at checkout.
@@ -93,7 +121,13 @@ export default function ShoppingCartModal() {
 
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
               <p>
-                OR <button onClick={() => handleCartClick()} className="font-medium text-primary hover:text-primary/80">Continue Shopping</button>
+                OR{" "}
+                <button
+                  onClick={() => handleCartClick()}
+                  className="font-medium text-primary hover:text-primary/80"
+                >
+                  Continue Shopping
+                </button>
               </p>
             </div>
           </div>

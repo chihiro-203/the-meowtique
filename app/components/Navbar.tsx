@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingCart } from "lucide-react";
+import { useShoppingCart } from "use-shopping-cart";
 
 const links = [
   { name: "Home", href: "/" },
@@ -19,7 +20,9 @@ const links = [
 
 export default function Navbar() {
   const logo = "/umemeu.png";
+  const { handleCartClick, cartCount } = useShoppingCart();
   const pathname = usePathname();
+
   return (
     <header className="relative mb-8 border-b sm:py-2 py-1">
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
@@ -32,11 +35,15 @@ export default function Navbar() {
 
         {/* Sidebar Button */}
 
-        <div className="flex divide-x">
+        <div className="flex divide-x relative">
           <Button
             variant={"ghost"}
+            onClick={() => handleCartClick()}
             className="flex flex-col h-12 w-12 sm:h-20 sm:w-20 md:h-20 rounded-lg"
           >
+            <span className="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
+              {cartCount}
+            </span>
             <ShoppingCart style={{ width: 30, height: 30 }} />
           </Button>
         </div>

@@ -8,6 +8,7 @@ export interface ProductCart {
   name: string;
   description: string;
   price: number;
+  sale: number;
   currency: string;
   image: any;
 }
@@ -17,22 +18,28 @@ export default function AddToBag({
   description,
   name,
   price,
+  sale,
   image,
 }: ProductCart) {
   const { addItem, handleCartClick } = useShoppingCart();
 
+  // const salePrice = sale > 0 ? price * (1 - sale / 100) : price;
+
   const product = {
-    name: name,
-    description: description,
+    name,
+    description,
     price: price,
-    currency: currency,
+    sale: sale,
+    currency,
     image: urlFor(image).url(),
-    id: "",
+    id: name,
   };
+
   return (
     <Button
       onClick={() => {
-        addItem(product), handleCartClick();
+        addItem(product); // Add product to the cart
+        handleCartClick(); // Open the cart
       }}
     >
       Add To Cart

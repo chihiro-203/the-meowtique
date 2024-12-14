@@ -76,14 +76,13 @@ export default async function ProductPage({
                   {data.sale > 0 ? (
                     <>
                       <span className="text-xl font-bold text-red-500 md:text-2xl">
-                        ${data.price}
-                      </span>
-                      <span className="text-base mb-0.5 text-gray-800 line-through">
-                        $
-                        {(
+                        ${(
                           (data.price * (100 - (data.sale ?? 0))) /
                           100
                         ).toFixed(2)}
+                      </span>
+                      <span className="text-base mb-0.5 text-gray-800 line-through">
+                        ${data.price}
                       </span>
                       <span className="text-base rounded-md px-2 font-bold mb-0.5 bg-red-500 text-white">
                         {data.sale ?? 0}%
@@ -107,10 +106,11 @@ export default async function ProductPage({
 
               <div className="flex gap-2.5">
                 <AddToBag
-                  currency="VND"
+                  currency="USA"
                   description={data.description}
                   name={data.name}
                   price={data.price}
+                  sale={data.sale}
                   image={data.images[0]}
                   key={data._id}
                 />
@@ -160,14 +160,14 @@ export default async function ProductPage({
                   <p className="my-1 text-base font-bold text-gray-500 cursor-pointer">
                     Materials & Care:
                   </p>
-                    <p className="mb-2 text-sm text-gray-500">
-                      {data.material.split("\n").map((line, index) => (
-                        <React.Fragment key={index}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </p>
+                  <p className="mb-2 text-sm text-gray-500">
+                    {data.material.split("\n").map((line, index) => (
+                      <React.Fragment key={index}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </p>
                 </div>
 
                 <hr className="my-4 border-gray-300" />

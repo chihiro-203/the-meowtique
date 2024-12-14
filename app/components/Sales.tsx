@@ -59,7 +59,7 @@ export default async function Sales() {
                       <span className="text-xs font-medium text-gray-900 line-through mr-1">
                         ${product.price}
                       </span>
-                      <span className="text-base mb-0.5 text-gray-800 line-through">
+                      <span className="text-base mb-0.5 text-gray-800">
                         $
                         {(
                           (product.price * (100 - (product.sale ?? 0))) /
