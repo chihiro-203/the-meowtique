@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		screens: {
+		  blg: "1300px", // Custom size between md (768px) and lg (1024px)
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

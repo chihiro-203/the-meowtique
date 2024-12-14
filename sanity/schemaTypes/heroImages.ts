@@ -18,5 +18,15 @@ export default {
       type: 'image',
       title: 'Third Image',
     },
+    {
+      name: 'image4',
+      type: 'image',
+      title: 'Forth Image',
+    },
+    {
+      name: 'image5',
+      type: 'image',
+      title: 'Fifth Image',
+    },
   ],
 }
