@@ -34,13 +34,13 @@ export const dynamicParams = true;
 export default async function ProductPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   //   const [openDetails, setOpenDetails] = useState(false);
   //   const [openMat, setOpenMat] = useState(false);
 
   try {
-    const { slug } = await Promise.resolve(params);
+    const { slug } = await params;
     const data: fullProduct = await getData(slug);
 
     return (

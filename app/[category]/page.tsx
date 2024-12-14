@@ -24,10 +24,10 @@ async function getData(category: string) {
 export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
   try {
-    const { category } = await Promise.resolve(params);
+    const { category } = await params;
     const data: simplifiedProduct[] = await getData(category);
     return (
       <div className="bg-white">

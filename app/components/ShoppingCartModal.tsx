@@ -19,7 +19,7 @@ export default function ShoppingCartModal() {
     removeItem,
     // totalPrice,
   } = useShoppingCart();
-  const totalPrice = Object.values(cartDetails).reduce((total, item) => {
+  const totalPrice = Object.values(cartDetails || {}).reduce((total, item) => {
     return (
       total +
       (item.sale > 0 ? item.price * (1 - item.sale / 100) : item.price) *
