@@ -27,17 +27,22 @@ export default {
       title: 'Product Slug',
       options: {
         source: 'name',
-      }
+      },
     },
     {
-        name: 'price',
-        type: 'number',
-        title: 'Price',
+      name: 'price',
+      type: 'number',
+      title: 'Price',
     },
     {
-        name: 'sale',
-        type: 'number',
-        title: 'Sale',
+      name: 'price_id',
+      type: 'string',
+      title: 'Stripe Price ID',
+    },
+    {
+      name: 'sale',
+      type: 'number',
+      title: 'Sale',
     },
     {
       name: 'description',
@@ -51,7 +56,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'category' }],
+          to: [{type: 'category'}],
         },
       ],
     },
