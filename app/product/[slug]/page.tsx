@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Star, Truck } from "lucide-react";
 import React from "react";
 import { useShoppingCart } from "use-shopping-cart";
+import CheckoutNow from "@/app/components/CheckoutNow";
 
 async function getData(slug: string) {
   const query = `*[_type == "product" && slug.current == "${slug}"][0] {
@@ -31,7 +32,7 @@ async function getData(slug: string) {
   return data;
 }
 
-export const dynamicParams = true;
+export const dynamic = "force-dynamic";
 
 export default async function ProductPage({
   params,
@@ -116,7 +117,16 @@ export default async function ProductPage({
                   image={data.images[0]}
                   key={data._id}
                 />
-                {/* <Button onClick={handleCheckoutClick}  variant={"secondary"}>Checkout Now</Button> */}
+                <CheckoutNow
+                  currency="USA"
+                  description={data.description}
+                  name={data.name}
+                  price={data.price}
+                  price_id={data.price_id}
+                  sale={data.sale}
+                  image={data.images[0]}
+                  key={data._id}
+                />
               </div>
 
               <div className="divider">

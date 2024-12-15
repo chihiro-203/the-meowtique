@@ -40,3 +40,13 @@ I use UI Shadcn, Nextjs
 
 
 References: https://www.youtube.com/watch?v=UnwmPuPdhFc
+
+
+
+✅ Deploying to Sanity.Studio
+
+Success! Studio deployed to https://the-meowtique.sanity.studio/
+
+Add studioHost: 'the-meowtique'
+to defineCliConfig root properties in sanity.cli.js or sanity.cli.ts
+to avoid prompting for hostname on next deploy.
