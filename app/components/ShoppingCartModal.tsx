@@ -17,8 +17,9 @@ export default function ShoppingCartModal() {
     handleCartClick,
     cartDetails,
     removeItem,
-    // totalPrice,
+    redirectToCheckout,
   } = useShoppingCart();
+
   const totalPrice = Object.values(cartDetails || {}).reduce((total, item) => {
     return (
       total +
@@ -27,7 +28,17 @@ export default function ShoppingCartModal() {
     );
   }, 0);
 
-  //   console.log("Total Price:", totalPrice);
+  async function handleCheckoutClick(event: any) {
+    event.preventDefault();
+    try {
+      const result = await redirectToCheckout();
+      if (result?.error) {
+        console.log("result")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
@@ -116,7 +127,7 @@ export default function ShoppingCartModal() {
             </p>
 
             <div className="mt-6">
-              <Button className=" w-full">Checkout</Button>
+              <Button onClick={handleCheckoutClick} className=" w-full">Checkout</Button>
             </div>
 
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

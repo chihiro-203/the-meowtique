@@ -12,6 +12,7 @@ async function getData(slug: string) {
     sku,
     images,
     price,
+    price_id,
     sale,
     name,
     description,
@@ -109,6 +110,7 @@ export default async function ProductPage({
                   description={data.description}
                   name={data.name}
                   price={data.price}
+                  price_id={data.price_id}
                   sale={data.sale}
                   image={data.images[0]}
                   key={data._id}

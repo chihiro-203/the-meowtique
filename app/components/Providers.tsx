@@ -9,8 +9,8 @@ function CartProvider({ children }: { children: ReactNode }) {
       mode="payment"
       cartMode="client-only"
       stripe={process.env.NEXT_PUBLIC_STRIPE_KEY as string}
-      successUrl="http://localhost:3000/success"
-      cancelUrl="http://localhost:3000/error"
+      successUrl="http://localhost:3000/checkout/success"
+      cancelUrl="http://localhost:3000/checkout/cancel"
       currency="USD"
       billingAddressCollection={true}
       shouldPersist={true}
