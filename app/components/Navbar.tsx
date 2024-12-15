@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingCart } from "lucide-react";
+import { Menu, ShoppingCart, X } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
 
 const links = [
   { name: "Home", href: "/" },
@@ -22,6 +24,7 @@ export default function Navbar() {
   const logo = "/umemeu.png";
   const { handleCartClick, cartCount } = useShoppingCart();
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="relative mb-8 border-b sm:py-2 py-1">
@@ -34,6 +37,20 @@ export default function Navbar() {
         </Link>
 
         {/* Sidebar Button */}
+        {open ? (
+        <Button
+            variant={"ghost"}
+            className="lg:hidden flex"  onClick={() => setOpen(false)}>
+              <X style={{ width: 24, height: 24 }} />
+        </Button>
+        ) :
+        (<Button
+            variant={"ghost"}
+            className="lg:hidden flex" onClick={() => setOpen(true)}>
+              <Menu style={{ width: 24, height: 24 }} />
+        </Button>)}
+
+        <Sidebar open={open} setOpen={setOpen} />
 
         <div className="flex divide-x relative">
           <Button

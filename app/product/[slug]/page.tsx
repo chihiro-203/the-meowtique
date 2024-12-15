@@ -5,6 +5,7 @@ import { client } from "@/app/lib/sanity";
 import { Button } from "@/components/ui/button";
 import { Star, Truck } from "lucide-react";
 import React from "react";
+import { useShoppingCart } from "use-shopping-cart";
 
 async function getData(slug: string) {
   const query = `*[_type == "product" && slug.current == "${slug}"][0] {
@@ -115,7 +116,7 @@ export default async function ProductPage({
                   image={data.images[0]}
                   key={data._id}
                 />
-                <Button variant={"secondary"}>Checkout Now</Button>
+                {/* <Button onClick={handleCheckoutClick}  variant={"secondary"}>Checkout Now</Button> */}
               </div>
 
               <div className="divider">
@@ -128,7 +129,6 @@ export default async function ProductPage({
                   <p className="my-1 text-base font-bold text-gray-500 cursor-pointer">
                     Product Details
                   </p>
-                  {/* {openDetails && ( */}
                   <div>
                     <p className="my-1 text-base font-bold text-gray-500">
                       Measurements:
@@ -153,7 +153,6 @@ export default async function ProductPage({
                       </span>
                     </p>
                   </div>
-                  {/* )} */}
                 </div>
 
                 <hr className="my-4 border-gray-300" />

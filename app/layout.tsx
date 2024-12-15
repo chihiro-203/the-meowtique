@@ -36,7 +36,7 @@ export default function RootLayout({
       >
       <Providers>
         <Navbar />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <ShoppingCartModal />
         {children}
       </Providers>
