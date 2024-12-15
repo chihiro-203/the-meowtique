@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { client, urlFor } from "../lib/sanity";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 async function getData() {
   const query = "*[_type == 'heroImage'][0]";
@@ -69,7 +70,7 @@ export default async function Hero() {
         {/* Bottom Right Button */}
         <div className="flex items-end justify-end lg:col-span-1 lg:row-span-2">
           <button className="leading-relaxed flex font-normal hover:underline">
-            Open Catalog <ChevronRight />
+            <Link href="/all" className="flex">Open Catalog <ChevronRight /></Link>
           </button>
         </div>
       </div>

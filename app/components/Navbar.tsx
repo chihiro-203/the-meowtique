@@ -41,7 +41,7 @@ export default function Navbar() {
             onClick={() => handleCartClick()}
             className="flex flex-col h-12 w-12 sm:h-20 sm:w-20 md:h-20 rounded-lg"
           >
-            <span className="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
+            <span className="absolute -top-1 -right-1 sm:top-2 sm:right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
               {cartCount}
             </span>
             <ShoppingCart style={{ width: 30, height: 30 }} />
