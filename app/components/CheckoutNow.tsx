@@ -17,6 +17,7 @@ export default function CheckoutNow({
   const { checkoutSingleItem } = useShoppingCart();
 
   function buyNow(priceId: string) {
+    localStorage.setItem("previousPage", window.location.href);
     checkoutSingleItem(priceId);
   }
 

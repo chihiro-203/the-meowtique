@@ -12,7 +12,7 @@ function CartProvider({ children }: { children: ReactNode }) {
       successUrl="http://localhost:3000/checkout/success"
       cancelUrl="http://localhost:3000/checkout/cancel"
       currency="USD"
-      billingAddressCollection={true}
+      billingAddressCollection={false}
       shouldPersist={true}
       language="en-US"
     >

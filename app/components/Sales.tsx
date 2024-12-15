@@ -30,7 +30,7 @@ export default async function Sales() {
             Our <span className="text-primary">Sales</span> Products
           </h2>
           <Link href="/all" className="text-primary flex items-center gap-x-1">
-            See All{" "}
+            See All Products{" "}
             <span>
               <ArrowRight />
             </span>

@@ -12,7 +12,7 @@ async function getData() {
 export default async function Hero() {
   const data = await getData();
   return (
-    <section className="mx-auto max-w-2xl px-4 sm:px-6  lg:flex lg:max-w-7xl lg:px-8">
+    <section className="mx-auto max-w-2xl px-4 sm:px-6 lg:flex lg:max-w-7xl lg:px-8">
       <div className="hidden w-full lg:grid lg:grid-cols-5 lg:grid-rows-3">
         {/* Left Image */}
         <div className=" items-center left-0 flex col-span-1 row-span-1 lg:-mb-48">
