@@ -9,8 +9,8 @@ export default function CartProvider({ children }: { children: ReactNode }) {
       mode="payment"
       cartMode="client-only"
       stripe={process.env.NEXT_PUBLIC_STRIPE_KEY as string}
-      successUrl="https://the-meowtique.vercel.app/checkout/success"
-      cancelUrl="https://the-meowtique.vercel.app/checkout/cancel"
+      successUrl="https://chi-the-meowtique.vercel.app/checkout/success"
+      cancelUrl="https://chi-the-meowtique.vercel.app/checkout/cancel"
       currency="USD"
       billingAddressCollection={false}
       shouldPersist={true}
